@@ -12,28 +12,34 @@ import { CarComponent } from "../car/car.component";
 })
 export class CarlistComponent {
 
-  carsData: ICar|any
+  carsData: ICar | any
   show: boolean = false
-  constructor(private _carAPIService:CarApiService){}
+  constructor(private _carAPIService: CarApiService) { }
 
   ngOnInit() {
     this.getCars()
   }
 
   getCars() {
-    this._carAPIService.getCarDetails().subscribe(carsData =>
-      { this.carsData = carsData
+    this._carAPIService.getCarDetails().subscribe(carsData => {
+      this.carsData = carsData
     });
   }
 
-  addCar(make:string, model:string, year:string,imageUrl:string):boolean {
-    let addCar:ICar;
-    addCar=new NewCar(make,model,year,imageUrl);
-    this._carAPIService.addCarDetails(addCar).subscribe(carsData =>
-      { this.carsData = carsData}
+  addCar(make: string, model: string, year: string, imageUrl: string): boolean {
+    let addCar: ICar;
+    addCar = new NewCar(make, model, year, imageUrl);
+    this._carAPIService.addCarDetails(addCar).subscribe(carsData => {
+      this.carsData = carsData
+      this.getCars();
+    }
     );
 
     return false;
+  }
+
+  refreshCars() {
+    this.getCars();
   }
 
 }
