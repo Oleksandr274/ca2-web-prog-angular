@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { CarlistComponent } from "./components/carlist/carlist.component";
+import { CommonModule } from '@angular/common';
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { HeaderComponent } from "./header/header.component";
+
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CarlistComponent],
+  imports: [RouterOutlet, CommonModule, HeaderComponent,],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'carsales-nosql';
+  title = 'CarSales-NoSQL';
 }

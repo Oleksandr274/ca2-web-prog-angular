@@ -12,7 +12,7 @@ export class CarComponent {
   @Input() carData?: ICar | any
   @Output() carDeletedEvent = new EventEmitter<string>()
 
-  carImageWidth: number = 300
+  carImageWidth: number = 250;
 
   constructor(private _carAPIService: CarApiService) { }
 

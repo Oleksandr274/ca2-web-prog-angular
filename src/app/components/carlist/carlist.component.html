@@ -1,28 +1,44 @@
-<div class='container mt-3 mb-3'>
-    <button (click)="show = !show">{{show ? 'Hide' : 'Add a Car'}}</button>
-  
-    <div *ngIf="show">
-      <form>
-        <label>Make</label>
-        <input type="text" name="make" placeholder="Enter Make" #make>
-  
-        <label>Model</label>
-        <input type="text" name="model" placeholder="Enter Model" #model>
-  
-        <label>Year</label>
-        <input type="text" name="year" placeholder="Enter Year" #year>
-  
-        <label>Image</label>
-        <input type="text" name="imageURL" placeholder="Enter Link to Image" #imageUrl>
-  
-        <button class="btn btn-primary" type="submit" (click)="addCar(make.value, 
-                  model.value,year.value,imageUrl.value)">Add Car</button>
-      </form>
+<button class="btn btn-secondary" (click)="show = !show">{{show ? 'Hide' : 'Add a Car'}}
+</button>
+<div *ngIf="show">
+  <div class="container mt-4 mx-auto w-50">
+    <h3 class="text-center">New Car</h3>
+    <div class="row mt-1">
+      <div class="order-md-1">
+        <form>
+          <div class="mb-3">
+            <label for="make">Make:</label>
+            <input type="text" class="form-control" name="make" placeholder="Enter Make" id="make" #make>
+          </div>
+          <div class="mb-3">
+            <label for="model">Model:</label>
+            <input type="text" class="form-control" name="model" placeholder="Enter model" id="model" #model>
+          </div>
+          <div class="mb-3">
+            <label for="year">Year:</label>
+            <input type="text" class="form-control" name="year" placeholder="Enter year" id="year" #year>
+          </div>
+          <div class="mb-3">
+            <label for="image">Image:</label>
+            <input type="text" class="form-control" name="image" placeholder="Enter Link to Image" id="image" #imageUrl>
+          </div>
+
+          <div>
+            <button class="btn btn-primary" type="submit" (click)="addCar(make.value, 
+                    model.value,year.value,imageUrl.value)">Add Car</button>
+          </div>
+        </form>
+      </div>
     </div>
-   </div>
-  
-   <div class='container'>
-      <app-car *ngFor="let carData of carsData" [carData]="carData" (carDeletedEvent)="refreshCars()">
-        
-      </app-car>
-   </div>
+  </div>
+  <hr class="mb-3">
+</div>
+
+
+
+
+<div class='row g4 mt-1'>
+  <app-car class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-3" *ngFor="let carData of carsData" [carData]="carData"
+    (carDeletedEvent)="refreshCars()">
+  </app-car>
+</div>
