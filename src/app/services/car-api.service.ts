@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable,catchError,tap } from 'rxjs';
 import { ICar } from '../interfaces/car';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +11,11 @@ export class CarApiService {
 
   constructor(private _http:HttpClient) { }
 
-  private _siteURL:string = 'http://localhost:5050/cars'
+  private _siteURL:string = environment.apiUrl
 
   getCarDetails():Observable<any> {
+
+    console.log("express url:" + this._siteURL);
 
     return this._http.get<ICar>(this._siteURL)
     .pipe(

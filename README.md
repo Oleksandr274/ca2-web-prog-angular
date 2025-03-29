@@ -1,3 +1,8 @@
+Angular application hosted on AWS S3 bucket: http://ca2-angular.s3-website-us-east-1.amazonaws.com
+
+Express API server hosted on EC2: 54.160.138.183
+
+
 # CarsalesNosql
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.4.
